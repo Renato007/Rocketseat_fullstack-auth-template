@@ -11,13 +11,14 @@ class SessionsController {
       id: "1",
       username: "renato",
       password: "123456",
+      role:"customer"
     };
 
     if (username !== fakeUser.username || password !== fakeUser.password) {
       throw new AppError("Usuário e/ou passoword incorreta!", 401);
     }
     const {secret, expiresIn} = authConfig.jwt
-    const token = sign({}, secret, {
+    const token = sign({role: fakeUser.role}, secret, {
       expiresIn,
       subject: String(fakeUser.id)
     })
