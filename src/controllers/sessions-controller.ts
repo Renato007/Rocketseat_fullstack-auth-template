@@ -8,7 +8,7 @@ class SessionsController {
     const { username, password } = request.body;
     //simulação de um usuário recuperado de um BD
     const fakeUser = {
-      id: 1,
+      id: "1",
       username: "renato",
       password: "123456",
     };
